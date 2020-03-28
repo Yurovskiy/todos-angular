@@ -1,0 +1,29 @@
+<div *ngIf='client'>
+    <div class="client-title">
+        <h2>{{ client.name }}</h2>
+        <button class="go-back" (click)='goBack()'>go back</button>
+    </div>
+    <ul class="client-info">
+        <li><span>id:</span> {{ client.id }}</li>
+        <li><span>name:</span> {{ client.name }}</li>
+        <li><span>username:</span> {{ client.username }}</li>
+        <li><span>phone:</span> {{ client.phone }}</li>
+        <li><span>email:</span> {{ client.email }}</li>
+        <li><span>website:</span> {{ client.website }}</li>
+        <li class="client-address"><span>address:</span>    
+            <ul>
+                <li><span>city:</span> {{ client.address.city }}</li>
+                <li><span>street:</span> {{ client.address.street }}</li>
+                <li><span>suite:</span> {{ client.address.suite }}</li>
+                <li><span>zipcode:</span> {{ client.address.zipcode }}</li>
+            </ul>
+        </li>
+        <li class="client-company"><span>company:</span>    
+            <ul>
+                <li><span>name:</span> {{ client.company.name }}</li>
+                <li><span>catchPhrase:</span> {{ client.company.catchPhrase }}</li>
+                <li><span>bs:</span> {{ client.company.bs }}</li>
+            </ul>
+        </li>
+    </ul>
+</div>

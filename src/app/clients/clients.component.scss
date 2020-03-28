@@ -1,0 +1,37 @@
+h2 {
+    margin: 15px 0;
+}
+
+.clients {
+    li {
+        display: flex;
+        align-items: center;
+
+        margin: 10px 0;
+
+        a {
+            flex: 1 1 auto;
+            padding: 10px 0;
+
+            background-color: #f0f0f0;
+            box-shadow: 0 0 2px 0 #f0f0f0;
+            color: inherit;
+
+            transition: all .2s ease-in-out;
+
+            span {
+                padding: 10px 15px;
+                margin: 0 10px 0 0;
+                background-color: #333333ce;
+                box-shadow: 0 0 2px 0 #333333ce;
+                color: #ffffff;
+            }
+        }
+        a:hover {
+            color: #ffffff;
+            background: #7383ca;
+            box-shadow: 0 0 2px 0 #7383ca;
+            cursor: pointer;
+        }
+    }
+}

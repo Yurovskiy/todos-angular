@@ -1,0 +1,22 @@
+<div class="dashboard">
+    <div class="left-side">
+        <h3>Top Clients</h3>
+        <div class="top-clients">
+            <a *ngFor="let client of clients"
+                routerLink='/detail/{{ client.id }}'>
+                <div>
+                    <h4>{{ client.name }}</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="right-side">
+        <h3>Active Todos</h3>
+        <div class="active-todos">
+            <a *ngFor="let client of clients"
+                routerLink='/detail/{{ client.id }}'>
+                <h4>{{ client.name }}</h4>
+            </a>
+        </div>
+    </div>
+</div>

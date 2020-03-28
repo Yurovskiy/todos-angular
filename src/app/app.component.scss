@@ -1,0 +1,43 @@
+h1 {
+    padding: 10px;
+    
+    color: #ffffff;
+    background-color: #333333ce;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+        flex-basis: 33.333%;
+        padding: 10px;
+
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+
+        color: #333333;
+        background: #c5c5c5;
+        transition: all .2s ease-in-out;
+    }
+
+    a:hover {
+        color: #ffffff;
+        background: #7383ca;
+    }
+
+    .active {
+        background: #7383ca;
+    }
+}

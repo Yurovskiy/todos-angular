@@ -1,0 +1,54 @@
+h2 {
+    margin: 15px 0;
+}
+
+.client-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.go-back {
+    padding: 8px 15px;
+
+    border: none;
+    background-color: #c5c5c5;
+    box-shadow: 0 0 2px 0 #c5c5c5;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all .2s ease-in-out;
+}
+.go-back:hover {
+    color: #ffffff;
+    background: #7383ca;
+    cursor: pointer;
+}
+
+.client-info {
+    li {
+        padding: 10px;
+        margin: 5px 0;
+
+        background-color: #f0f0f0;
+        font-weight: bold;
+
+        span {
+            color: gray;
+        }
+    }
+
+    .client-address,
+    .client-company {
+        span {
+            text-transform: uppercase;
+        }
+        ul li {
+            padding: 0 10px;
+        }
+        ul li span {
+            text-transform: inherit;
+        }
+    }
+}
