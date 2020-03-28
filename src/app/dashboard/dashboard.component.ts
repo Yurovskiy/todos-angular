@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Client } from '../interfaces/client';
 import { ClientService } from './../services/client.service';
@@ -10,7 +10,7 @@ import { ClientService } from './../services/client.service';
 })
 export class DashboardComponent implements OnInit {
 
-  clients: Client[] = [];
+  @Input() clients: Client[] = [];
 
   constructor(
     private clientService: ClientService

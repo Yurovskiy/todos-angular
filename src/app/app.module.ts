@@ -9,6 +9,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientsComponent } from './clients/clients.component';
 import { TodosComponent } from './todos/todos.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { ClientSearchComponent } from './client-search/client-search.component';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,17 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
     DashboardComponent,
     ClientsComponent,
     TodosComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    ClientSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

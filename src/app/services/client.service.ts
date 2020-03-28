@@ -10,7 +10,7 @@ import { Client } from '../interfaces/client';
 })
 export class ClientService {
 
-  private clientsUrl = 'https://jsonplaceholder.typicode.com/users';
+  private clientsUrl = 'api/clients';
 
   constructor(
     private http: HttpClient
