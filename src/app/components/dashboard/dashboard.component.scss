@@ -50,9 +50,6 @@
     }
 
     .active-todos {
-        display: flex;
-        justify-content: start;
-        align-items: center;
 
         ul {
             width: 100%;
@@ -99,4 +96,27 @@
 .done {
     text-decoration: line-through;
     color: #dd9090;
+}
+
+.no-todos {
+    text-align: center;
+    margin: 40px 0;
+
+    p {
+        margin: 0 0 20px 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: gray;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        transition: all .2s ease-in-out;
+    }
+    img:hover {
+        transform: scale(1.1);
+    }
 }

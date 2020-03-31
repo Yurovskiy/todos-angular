@@ -1,4 +1,5 @@
 <div class="dashboard">
+
     <div class="left-side">
         <h3>Top Clients</h3>
         <div class="top-clients">
@@ -11,15 +12,24 @@
         </div>
         <app-client-search></app-client-search>
     </div>
+
     <div class="right-side">
         <h3>Active Todos</h3>
         <div class="active-todos">
-            <ul>
+            <ul *ngIf='todoService.todos.length; else noTodos'>
                 <li *ngFor='let todo of todoService.todos'
                     [class.done]='todo.completed' >
                     {{ todo.title }}
                 </li>
             </ul>
         </div>
+
+        <ng-template #noTodos>
+            <div class="no-todos">
+                <p>No todos now</p>
+                <img src="../../../assets/images/clipart2560733.png"
+                     title='Do you want add new todo?' />
+            </div>
+        </ng-template> 
     </div>
 </div>
