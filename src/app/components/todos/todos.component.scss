@@ -1,0 +1,128 @@
+h2 {
+    margin: 15px 0;
+}
+
+.todo-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 0 0;
+
+    label {
+        padding: 0 10px 0 0;
+        font-size: 16px;
+    }
+
+    input {
+        padding: 8px 10px;
+        margin: 0 0 0 10px;
+
+        border: none;
+        box-shadow: 0 0 3px 0 #7383ca;
+        transition: all 0.2s ease-in-out;
+    }
+    input:hover {
+        box-shadow: 0 0 5px 0 #7383ca;
+    }
+
+    .todo-add-btn {
+        padding: 10px 20px;
+
+        border: none;
+        background-color: #c5c5c5;
+        box-shadow: 0 0 2px 0 #c5c5c5;
+
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        transition: all 0.2s ease-in-out;
+    }
+    .todo-add-btn:hover {
+        color: #ffffff;
+        background: #7383ca;
+        cursor: pointer;
+    }
+}
+
+.todos-list {
+    li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 10px;
+        margin: 10px 0;
+
+        background-color: #f0f0f0;
+        box-shadow: 0 0 2px 0 #f0f0f0;
+        transition: all 0.2s ease-in-out;
+        font-size: 18px;
+
+        span {
+            display: flex;
+            align-items: center;
+            p {
+                margin: 0 0 0 10px;
+            }
+        }
+
+        span .todo-date {
+            margin: 0 10px 0 0;
+            font-size: 14px;
+        }
+
+        .done {
+            p {
+                text-decoration: line-through;
+                color: #dd9090;
+            }
+        }
+
+        .todo-remove {
+            padding: 4px 8px;
+
+            border: none;
+            color: #ffffff;
+            background-color: #333333ce;
+            box-shadow: 0 0 2px 0 #333333ce;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            transition: all 0.2s ease-in-out;
+        }
+        .todo-remove:hover {
+            cursor: pointer;
+            color: #333333;
+            background-color: #ffffff;
+            box-shadow: 0 0 2px 0 #ffffff;
+        }
+    }
+    li:hover {
+        color: #ffffff;
+        background: #7383ca;
+        box-shadow: 0 0 2px 0 #7383ca;
+    }
+}
+
+.no-todos {
+    text-align: center;
+    margin: 40px 0;
+
+    p {
+        font-size: 18px;
+        margin: 0 0 20px 0;
+        font-weight: bold;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        transition: all .2s ease-in-out;
+    }
+    img:hover {
+        transform: scale(1.1);
+    }
+}

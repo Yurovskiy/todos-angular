@@ -14,10 +14,12 @@
     <div class="right-side">
         <h3>Active Todos</h3>
         <div class="active-todos">
-            <a *ngFor="let client of clients"
-                routerLink='/detail/{{ client.id }}'>
-                <h4>{{ client.name }}</h4>
-            </a>
+            <ul>
+                <li *ngFor='let todo of todoService.todos'
+                    [class.done]='todo.completed' >
+                    {{ todo.title }}
+                </li>
+            </ul>
         </div>
     </div>
 </div>

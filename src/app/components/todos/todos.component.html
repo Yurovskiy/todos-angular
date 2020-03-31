@@ -1,0 +1,38 @@
+<div>
+    <div class="todo-add">
+        <h2>Todos:</h2>
+        <span>
+            <label>Add new todo:
+                <input [(ngModel)]='todoTitle' (keyup.enter)='addTodo()' />
+            </label>
+            <button class="todo-add-btn" (click)='addTodo()'>
+                add
+            </button>
+        </span>
+    </div>
+
+    <ul class="todos-list" *ngIf='todoService.todos.length; else noTodos'>
+        <li *ngFor='let todo of todoService.todos'>
+            <span [class.done]='todo.completed'>
+                <input type="checkbox" [checked]='todo.completed' (change)='onChange(todo.id)'>
+                <p>{{ todo.title }}</p>
+            </span>
+            <span>
+                <p class="todo-date"> {{ todo.date | date: 'short' }} </p>
+                <button class="todo-remove" (click)='removeTodo(todo.id)'>
+                    x
+                </button>
+            </span>
+        </li>
+    </ul>
+
+    <ng-template #noTodos>
+        <div class="no-todos">
+            <p>No todos now</p>
+            <img src="../../../assets/images/clipart2560733.png"
+                 title='Do you want add new todo?' />
+        </div>
+    </ng-template> 
+
+</div>
+

@@ -27,13 +27,13 @@
 
         a {
             flex-basis: 25%;
-            margin: 0 10px 10px 0; 
+            margin: 0 10px 10px 0;
             padding: 40px;
 
             background-color: #ebebeb;
             box-shadow: 0 0 2px 0 #ebebeb;
             text-align: center;
-            transition: all .2s ease-out;
+            transition: all 0.2s ease-out;
         }
         a:last-child {
             margin: 0 0 10px 0;
@@ -51,9 +51,32 @@
 
     .active-todos {
         display: flex;
+        justify-content: start;
+        align-items: center;
+
+        ul {
+            width: 100%;
+        }
+
+        li {
+            padding: 10px;
+            margin: 0 0 10px 0;
+            flex: 1 1 auto;
+
+            background-color: #f0f0f0;
+            box-shadow: 0 0 2px 0 #f0f0f0;
+            transition: all 0.2s ease-in-out;
+            font-size: 18px;
+        }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1038px) {
+        .right-side {
+            padding: 0;
+            flex-basis: 60%;
+        }
+    }
+    @media screen and (max-width: 700px) {
         .left-side,
         .right-side {
             flex-basis: 100%;
@@ -71,4 +94,9 @@
             }
         }
     }
+}
+
+.done {
+    text-decoration: line-through;
+    color: #dd9090;
 }

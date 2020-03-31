@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { Client } from './../interfaces/client';
-import { ClientService } from './../services/client.service';
+import { Client } from '../../interfaces/client';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-client-search',
