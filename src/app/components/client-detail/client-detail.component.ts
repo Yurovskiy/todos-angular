@@ -16,18 +16,11 @@ export class ClientDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private clientService: ClientService,
     private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.getHero();
-  }
-
-  public getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.clientService.getClient(id)
-      .subscribe(client => this.client = client);
+    this.client = this.route.snapshot.data.clientDetail;
   }
 
   public goBack(): void {

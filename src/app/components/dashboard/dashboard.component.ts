@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { IClient } from '../../interfaces/client';
-import { ClientService } from '../../services/client.service';
-import { ITodo } from './../../interfaces/todo';
 import { TodoService } from './../../services/todo.service';
+import { IClient } from '../../interfaces/client';
+import { ITodo } from './../../interfaces/todo';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,26 +12,22 @@ import { TodoService } from './../../services/todo.service';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() clients: IClient[] = [];
-  @Input() todos: ITodo[] = [];
+  public clients: IClient[];
+  public todos: ITodo[];
 
   constructor(
-    private clientService: ClientService,
-    private todoService: TodoService
+    public todoService: TodoService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getClients();
-    this.getTodos();
+    this.clients = this.route.snapshot.data.clientList;
+    this.todos = this.todoService.getTodos();
   }
 
-  private getClients(): void {
-    this.clientService.getClients()
-      .subscribe(clients => this.clients = clients.slice(1, 5));
-  }
-
-  private getTodos(): void {
-    this.todoService.getTodos();
-  }
+  // private getClients(): void {
+  //   this.clientService.getClients()
+  //     .subscribe(clients => this.clients = clients.slice(1, 5));
+  // }
 
 }

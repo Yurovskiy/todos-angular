@@ -20,9 +20,8 @@ export class ClientService {
     return this.http.get<IClient[]>(this.clientsUrl);
   }
 
-  public getClient(id: number): Observable<IClient> {
-    const url = `${this.clientsUrl}/${id}`;
-    return this.http.get<IClient>(url);
+  public getClientById(id: number): Observable<IClient> {
+    return this.http.get<IClient>(`${this.clientsUrl}/${id}`);
   }
 
   public searchClient(term: string): Observable<IClient[]> {

@@ -21,22 +21,17 @@
     }
 
     .top-clients {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
 
         a {
-            flex-basis: 25%;
-            margin: 0 10px 10px 0;
-            padding: 40px;
+            padding: 2rem;
 
             background-color: #ebebeb;
             box-shadow: 0 0 2px 0 #ebebeb;
             text-align: center;
             transition: all 0.2s ease-out;
-        }
-        a:last-child {
-            margin: 0 0 10px 0;
         }
         a:hover {
             transform: scale(1.05);
@@ -67,27 +62,28 @@
         }
     }
 
-    @media screen and (max-width: 1038px) {
-        .right-side {
-            padding: 0;
-            flex-basis: 60%;
-        }
-    }
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 1024px) {
         .left-side,
         .right-side {
-            flex-basis: 100%;
             padding: 0;
+            flex-basis: 100%;
         }
+    }
+    @media screen and (max-width: 620px) {
         .top-clients {
-            flex-wrap: wrap;
+            grid-template-columns: repeat(2, 1fr);
+
             a {
-                flex: 1 1 auto;
-                padding: 30px;
-                margin: 0 5px 10px 5px;
+                padding: 1.5rem;
             }
-            a:last-child {
-                margin: 0 5px 10px 5px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .top-clients {
+            grid-template-columns: 1fr;
+
+            a {
+                padding: 1rem;
             }
         }
     }
