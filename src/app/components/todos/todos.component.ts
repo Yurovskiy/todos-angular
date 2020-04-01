@@ -19,6 +19,9 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {}
 
   public addTodo(): void {
+    if (this.todoTitle.trim().length === 0) {
+      return;
+    }
     const todo: ITodo = {
       id: this.todoService.genId(this.todoService.todos),
       title: this.todoTitle,
