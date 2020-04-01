@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Client } from '../../interfaces/client';
+import { IClient } from '../../interfaces/client';
 import { ClientService } from '../../services/client.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ClientService } from '../../services/client.service';
 })
 export class ClientDetailComponent implements OnInit {
 
-  client: Client;
+  public client: IClient;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,13 +24,13 @@ export class ClientDetailComponent implements OnInit {
     this.getHero();
   }
 
-  getHero(): void {
+  public getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.clientService.getClient(id)
       .subscribe(client => this.client = client);
   }
 
-  goBack(): void {
+  public goBack(): void {
     this.location.back();
   }
 }

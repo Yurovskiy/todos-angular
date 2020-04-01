@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Todo } from './../../interfaces/todo';
+import { ITodo } from './../../interfaces/todo';
 import { TodoService } from '../../services/todo.service';
 
 @Component({
@@ -10,17 +10,16 @@ import { TodoService } from '../../services/todo.service';
 })
 export class TodosComponent implements OnInit {
 
-  todoTitle: '';
+  private todoTitle: '';
 
   constructor(
-    public todoService: TodoService
+    private todoService: TodoService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  addTodo(): void {
-    const todo: Todo = {
+  public addTodo(): void {
+    const todo: ITodo = {
       id: this.todoService.genId(this.todoService.todos),
       title: this.todoTitle,
       completed: false,
@@ -30,11 +29,11 @@ export class TodosComponent implements OnInit {
     this.todoTitle = '';
   }
 
-  removeTodo(id: number): void {
+  public removeTodo(id: number): void {
     this.todoService.removeTodo(id);
   }
 
-  onChange(id: number): void {
+  public onChange(id: number): void {
     this.todoService.onToggle(id);
   }
 

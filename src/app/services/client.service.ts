@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { Client } from '../interfaces/client';
+import { IClient } from '../interfaces/client';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,19 @@ export class ClientService {
     private http: HttpClient
   ) { }
 
-  getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.clientsUrl);
+  public getClients(): Observable<IClient[]> {
+    return this.http.get<IClient[]>(this.clientsUrl);
   }
 
-  getClient(id: number): Observable<Client> {
+  public getClient(id: number): Observable<IClient> {
     const url = `${this.clientsUrl}/${id}`;
-    return this.http.get<Client>(url);
+    return this.http.get<IClient>(url);
   }
 
-  searchClient(term: string): Observable<Client[]> {
+  public searchClient(term: string): Observable<IClient[]> {
     if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Client[]>(`${this.clientsUrl}/?name=${term}`);
+    return this.http.get<IClient[]>(`${this.clientsUrl}/?name=${term}`);
   }
 }

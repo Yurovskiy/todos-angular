@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TodosComponent } from './components/todos/todos.component';
-import { ClientsComponent } from './components/clients/clients.component';
+import { ClientsComponent } from './components/clients-list/clients.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 

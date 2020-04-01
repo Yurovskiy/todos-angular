@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Client } from '../../interfaces/client';
+import { IClient } from '../../interfaces/client';
 import { ClientService } from '../../services/client.service';
-import { Todo } from './../../interfaces/todo';
+import { ITodo } from './../../interfaces/todo';
 import { TodoService } from './../../services/todo.service';
 
 @Component({
@@ -12,12 +12,12 @@ import { TodoService } from './../../services/todo.service';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() clients: Client[] = [];
-  @Input() todos: Todo[] = [];
+  @Input() clients: IClient[] = [];
+  @Input() todos: ITodo[] = [];
 
   constructor(
     private clientService: ClientService,
-    public todoService: TodoService
+    private todoService: TodoService
   ) { }
 
   ngOnInit(): void {
@@ -25,12 +25,12 @@ export class DashboardComponent implements OnInit {
     this.getTodos();
   }
 
-  getClients(): void {
+  private getClients(): void {
     this.clientService.getClients()
       .subscribe(clients => this.clients = clients.slice(1, 5));
   }
 
-  getTodos(): void {
+  private getTodos(): void {
     this.todoService.getTodos();
   }
 

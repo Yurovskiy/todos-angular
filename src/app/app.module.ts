@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ClientsComponent } from './components/clients/clients.component';
+import { ClientsComponent } from './components/clients-list/clients.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 import { ClientSearchComponent } from './components/client-search/client-search.component';

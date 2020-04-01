@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Client } from '../../interfaces/client';
+import { IClient } from '../../interfaces/client';
 import { ClientService } from '../../services/client.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ClientService } from '../../services/client.service';
 })
 export class ClientsComponent implements OnInit {
 
-  clients: Client[];
+  public clients: IClient[];
 
   constructor(
     private clientService: ClientService
@@ -20,7 +20,7 @@ export class ClientsComponent implements OnInit {
     this.getClients();
   }
 
-  getClients(): void {
+  private getClients(): void {
     this.clientService.getClients()
       .subscribe(clients => this.clients = clients);
   }
