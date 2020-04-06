@@ -26,6 +26,7 @@ const routes: Routes = [
   {
     path: 'clients',
     component: ClientsComponent,
+    canActivate: [AuthGuard],
     resolve: { clientList: ClientListResolver }
   },
   {
