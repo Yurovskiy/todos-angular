@@ -10,15 +10,12 @@
         list-style-type: none;
     }
 
-    .search-result li:hover {
-        background-color: #7383ca;
-    }
-
     .search-result li a {
         display: block;
         padding: 10px;
 
-        color: #888;
+        color: #ffffff;
+        background-color: #222222;
         text-decoration: none;
 
         transition: all 0.2s ease-in-out;
@@ -27,6 +24,7 @@
     .search-result li a:hover,
     .search-result li a:active {
         color: white;
+        background-color: #7383ca;
     }
 
     #search-box {
@@ -34,11 +32,16 @@
         padding: 8px 10px;
 
         border: none;
+        background-color: #222222;
+        color: #ffffff;
         box-shadow: 0 0 3px 0 #7383ca;
         transition: all 0.2s ease-in-out;
     }
     #search-box:hover {
         box-shadow: 0 0 5px 0 #7383ca;
+    }
+    #search-box:focus {
+        background-color: #111111;
     }
 
     ul.search-result {

@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { IClient } from '../../interfaces/client';
-import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-client-detail',

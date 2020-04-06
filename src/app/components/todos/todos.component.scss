@@ -18,11 +18,16 @@ h2 {
         margin: 0 0 0 10px;
 
         border: none;
+        background-color: #222222;
+        color: #ffffff;
         box-shadow: 0 0 3px 0 #7383ca;
         transition: all 0.2s ease-in-out;
     }
     input:hover {
         box-shadow: 0 0 5px 0 #7383ca;
+    }
+    input:focus {
+        background-color: #111111;
     }
 
     .todo-add-btn {
@@ -53,8 +58,8 @@ h2 {
         padding: 10px;
         margin: 10px 0;
 
-        background-color: #f0f0f0;
-        box-shadow: 0 0 2px 0 #f0f0f0;
+        background-color: #606369;
+        box-shadow: 0 0 2px 0 #606369;
         transition: all 0.2s ease-in-out;
         font-size: 18px;
 
@@ -121,7 +126,7 @@ h2 {
         margin: 0 auto;
         width: 100px;
         height: 100px;
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
     }
     img:hover {
         transform: scale(1.1);

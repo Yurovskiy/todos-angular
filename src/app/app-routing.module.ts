@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './guards/auth.guard';
+
 import { ClientListResolver } from './resolvers/client-list.resolver';
 import { ClientDetailResolver } from './resolvers/client-detail.resolver';
 
@@ -29,9 +31,12 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: ClientDetailComponent,
+    canActivate: [AuthGuard],
     resolve: { clientDetail: ClientDetailResolver }
   },
-  { path: 'todos', component: TodosComponent }
+  { path: 'todos',
+    component: TodosComponent,
+    canActivate: [AuthGuard] }
 ];
 
 @NgModule({
