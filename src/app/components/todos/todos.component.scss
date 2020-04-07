@@ -8,6 +8,13 @@ h2 {
     align-items: center;
     padding: 10px 0 0 0;
 
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
     label {
         padding: 0 10px 0 0;
         font-size: 16px;
@@ -71,11 +78,6 @@ h2 {
             }
         }
 
-        span .todo-date {
-            margin: 0 10px 0 0;
-            font-size: 14px;
-        }
-
         .done {
             p {
                 text-decoration: line-through;
@@ -83,7 +85,7 @@ h2 {
             }
         }
 
-        .todo-remove {
+        .todo-delete {
             padding: 4px 8px;
 
             border: none;
@@ -96,7 +98,7 @@ h2 {
 
             transition: all 0.2s ease-in-out;
         }
-        .todo-remove:hover {
+        .todo-delete:hover {
             cursor: pointer;
             color: #333333;
             background-color: #ffffff;

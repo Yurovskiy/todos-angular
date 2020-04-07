@@ -2,24 +2,30 @@
     <div class="todo-add">
         <h2>Todos:</h2>
         <span>
-            <label>Add new todo:
-                <input [(ngModel)]='todoTitle' (keyup.enter)='addTodo()' />
-            </label>
-            <button class="todo-add-btn" (click)='addTodo()'>
-                add
-            </button>
+            <form (ngSubmit)="onSubmit()">
+                <div>
+                    <label>Title:
+                        <input [(ngModel)]='todo.title' name="title" />
+                    </label>
+                </div>
+                <div>
+                    <label>Description:
+                        <input [(ngModel)]='todo.description' name="description" />
+                    </label>
+                </div>
+                <input type="submit" value="Add" class="todo-add-btn" />
+            </form>
         </span>
     </div>
 
-    <ul class="todos-list" *ngIf='todoService.todos.length; else noTodos'>
-        <li *ngFor='let todo of todoService.todos'>
+    <ul class="todos-list" *ngIf='todos?.length > 0; else noTodos'>
+        <li *ngFor='let todo of todos'>
             <span [class.done]='todo.completed'>
-                <input type="checkbox" [checked]='todo.completed' (change)='onChange(todo.id)'>
-                <p>{{ todo.title }}</p>
+                <input type="checkbox" [checked]='todo.completed' (change)='onChange(todo)'>
+                <p>{{ todo.title }} <strong> {{ todo.description }} </strong></p>
             </span>
             <span>
-                <p class="todo-date"> {{ todo.date | date: 'short' }} </p>
-                <button class="todo-remove" (click)='removeTodo(todo.id)'>
+                <button class="todo-delete" (click)='deleteTodo($event, todo)'>
                     x
                 </button>
             </span>

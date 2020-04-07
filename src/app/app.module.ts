@@ -23,6 +23,7 @@ import { ClientSearchComponent } from './components/client-search/client-search.
 // Resolvers
 import { ClientListResolver } from './resolvers/client-list.resolver';
 import { ClientDetailResolver } from './resolvers/client-detail.resolver';
+import { TodosListResolver } from './resolvers/todos-list.resolver';
 
 // InMemoryWebApiModule
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -50,7 +51,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [ClientListResolver, ClientDetailResolver],
+  providers: [ClientListResolver, ClientDetailResolver, TodosListResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

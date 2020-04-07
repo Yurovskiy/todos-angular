@@ -1,3 +1,4 @@
+import { TodosListResolver } from './resolvers/todos-list.resolver';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -35,9 +36,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     resolve: { clientDetail: ClientDetailResolver }
   },
-  { path: 'todos',
+  {
+    path: 'todos',
     component: TodosComponent,
-    canActivate: [AuthGuard] }
+    canActivate: [AuthGuard],
+    // resolve: { todosList: TodosListResolver }
+  }
 ];
 
 @NgModule({
