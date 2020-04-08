@@ -35,7 +35,6 @@
     display: flex;
     justify-content: flex-end;
     padding: 5px 15px;
-    background-color: #9c27b0d9;
 
     .logined {
         display: flex;
@@ -77,10 +76,14 @@
 }
 
 #login {
-    background: #7383ca;
+    background: #c34a4abb;
     border: none;
     padding: 5px;
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+#login:hover {
+    background: #c34a4a;
 }

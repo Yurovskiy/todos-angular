@@ -1,7 +1,13 @@
 <nav class="header">
 
+    <div class="nav">
+        <a routerLink='/dashboard'>dashboard</a>
+        <a routerLink='/clients'>clients</a>
+        <a routerLink='/todos'>todos</a>
+    </div>
+
     <div class="auth-user">
-        <div class="logined" *ngIf="auth.user$ | async as user; else login">
+        <div class="logined" *ngIf="auth.user$ | async as user">
             <div class="user-bar">
                 <h4> {{ user.displayName | uppercase }} </h4>
                 <div class="logo">
@@ -10,16 +16,6 @@
             </div>
             <button (click)="auth.signOut()">Sign Out</button>
         </div>
-    
-        <ng-template #login>
-            <button id="login" (click)="auth.googleSignin()">Login with Google</button>
-        </ng-template>
-    </div>
-
-    <div class="nav">
-        <a routerLink='/dashboard'>dashboard</a>
-        <a routerLink='/clients'>clients</a>
-        <a routerLink='/todos'>todos</a>
     </div>
     
 </nav>

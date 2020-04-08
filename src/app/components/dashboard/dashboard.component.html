@@ -13,13 +13,13 @@
         <app-client-search></app-client-search>
     </div>
 
-    <!-- <div class="right-side">
+    <div class="right-side">
         <h3>Active Todos</h3>
         <div class="active-todos">
-            <ul *ngIf='todoService.todos.length; else noTodos'>
-                <li *ngFor='let todo of todoService.todos'
+            <ul *ngIf='todos?.length > 0; else noTodos'>
+                <li *ngFor='let todo of todos'
                     [class.done]='todo.completed' >
-                    {{ todo.title }}
+                    <strong>{{ todo.title }}</strong> {{ todo.description }}
                 </li>
             </ul>
         </div>
@@ -31,5 +31,5 @@
                      title='Do you want add new todo?' />
             </div>
         </ng-template> 
-    </div> -->
+    </div>
 </div>

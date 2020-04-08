@@ -28,6 +28,7 @@ import { TodosListResolver } from './resolvers/todos-list.resolver';
 // InMemoryWebApiModule
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     ClientsComponent,
     TodosComponent,
     ClientDetailComponent,
-    ClientSearchComponent
+    ClientSearchComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

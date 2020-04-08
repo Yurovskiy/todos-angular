@@ -15,7 +15,7 @@ import { IUser } from './../interfaces/user';
 })
 export class AuthService {
 
-  user$: Observable<IUser>;
+  public user$: Observable<IUser>;
 
   constructor(
     private afAuth: AngularFireAuth,

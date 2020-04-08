@@ -1,4 +1,5 @@
 <div>
+    
     <div class="todo-add">
         <h2>Todos:</h2>
         <span>
@@ -22,7 +23,7 @@
         <li *ngFor='let todo of todos'>
             <span [class.done]='todo.completed'>
                 <input type="checkbox" [checked]='todo.completed' (change)='onChange(todo)'>
-                <p>{{ todo.title }} <strong> {{ todo.description }} </strong></p>
+                <p><strong> {{ todo.title }} </strong> {{ todo.description }} </p>
             </span>
             <span>
                 <button class="todo-delete" (click)='deleteTodo($event, todo)'>

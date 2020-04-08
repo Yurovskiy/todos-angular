@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
       tap(loggedIn => {
         if (!loggedIn) {
           alert('Access denied! Loggin please.');
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         }
       })
     );

@@ -22,7 +22,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.clients = this.route.snapshot.data.clientList;
-    // this.todos = this.todoService.getTodos();
+
+    this.todoService.getTodos().subscribe(todos => {
+      this.todos = todos;
+    });
   }
 
   // private getClients(): void {
