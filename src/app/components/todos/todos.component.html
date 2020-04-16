@@ -1,23 +1,12 @@
-<div>
+<div *ngIf="!showSpinner">
     
-    <div class="todo-add">
-        <h2>Todos:</h2>
-        <span>
-            <form (ngSubmit)="onSubmit()">
-                <div>
-                    <label>Title:
-                        <input [(ngModel)]='todo.title' name="title" />
-                    </label>
-                </div>
-                <div>
-                    <label>Description:
-                        <input [(ngModel)]='todo.description' name="description" />
-                    </label>
-                </div>
-                <input type="submit" value="Add" class="todo-add-btn" />
-            </form>
-        </span>
-    </div>
+    <h2>Todos:</h2>
+
+    <a class="add-todo-link" routerLink="/dashboard/todos/add-todo">
+        <p>Add new todo</p>
+    </a>
+
+    <router-outlet></router-outlet>
 
     <ul class="todos-list" *ngIf='todos?.length > 0; else noTodos'>
         <li *ngFor='let todo of todos'>
@@ -26,7 +15,7 @@
                 <p><strong> {{ todo.title }} </strong> {{ todo.description }} </p>
             </span>
             <span>
-                <button class="todo-delete" (click)='deleteTodo($event, todo)'>
+                <button class="todo-delete" (click)='deleteTodo(todo)'>
                     x
                 </button>
             </span>
@@ -42,4 +31,6 @@
     </ng-template> 
 
 </div>
+
+<app-loading-spinner *ngIf="showSpinner" class="loading"></app-loading-spinner>
 

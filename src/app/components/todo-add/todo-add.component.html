@@ -1,0 +1,13 @@
+<form class="add-todo" (submit)="onSubmit()">
+
+    <a class="close" routerLink="/dashboard/todos">&times;</a>
+
+    <label>Title:
+        <input [(ngModel)]='todo.title' name="title" />
+    </label>
+    <label>Description:
+        <input [(ngModel)]='todo.description' name="description" />
+    </label>
+
+    <input class="add-todo-btn" type="submit" value="Submit" />
+</form>

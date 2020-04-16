@@ -1,0 +1,28 @@
+.nav {
+    display: grid;
+    gap: 2px;
+
+    a {
+        padding: 10px;
+
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+
+        color: #f0f0f0;
+        background: #333333;
+        transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+        color: #ffffff;
+        background: #009688;
+    }
+
+    .active {
+        background: #009688;
+    }
+    .active:hover {
+        background: #00ad9c;
+    }
+}

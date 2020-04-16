@@ -24,11 +24,11 @@ export class ClientSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clients$ = this.searchTerms.pipe(
-      debounceTime(100),
-      distinctUntilChanged(),
-      switchMap((term: string) => this.clientService.searchClient(term)),
-    );
+    // this.clients$ = this.searchTerms.pipe(
+    //   debounceTime(100),
+    //   distinctUntilChanged(),
+    //   switchMap((term: string) => this.clientService.searchClient(term)),
+    // );
   }
 
 }

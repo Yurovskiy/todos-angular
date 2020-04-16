@@ -14,31 +14,32 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientsComponent } from './components/clients-list/clients-list.component';
-import { TodosComponent } from './components/todos/todos.component';
 import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 import { ClientSearchComponent } from './components/client-search/client-search.component';
-
-// Resolvers
-import { ClientListResolver } from './resolvers/client-list.resolver';
-import { ClientDetailResolver } from './resolvers/client-detail.resolver';
-import { TodosListResolver } from './resolvers/todos-list.resolver';
-
-// InMemoryWebApiModule
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/in-memory-data.service';
-import { LoginComponent } from './components/login/login.component';
+import { ClientAddComponent } from './components/client-add/client-add.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { TodoAddComponent } from './components/todo-add/todo-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     DashboardComponent,
     ClientsComponent,
     TodosComponent,
     ClientDetailComponent,
     ClientSearchComponent,
-    LoginComponent
+    ClientAddComponent,
+    SidebarComponent,
+    AudioPlayerComponent,
+    LoadingSpinnerComponent,
+    TodoAddComponent
   ],
   imports: [
     BrowserModule,
@@ -48,12 +49,8 @@ import { LoginComponent } from './components/login/login.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    // InMemoryWebApi
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
   ],
-  providers: [ClientListResolver, ClientDetailResolver, TodosListResolver],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,25 @@
+<form class="add-client" (submit)="onSubmit()">
+
+    <a class="close" routerLink="/dashboard/clients">&times;</a>
+
+    <label for="firstName">First name:
+        <input [(ngModel)]="client.firstName" name="firstName">
+    </label>
+    <label for="lastName">Last name:
+        <input [(ngModel)]="client.lastName" name="lastName">
+    </label>
+    <label for="nickName">Nick name:
+        <input [(ngModel)]="client.nickName" name="nickName">
+    </label>
+    <label for="email">Email:
+        <input [(ngModel)]="client.email" name="email">
+    </label>
+    <label for="phone">Phone:
+        <input [(ngModel)]="client.phone" name="phone">
+    </label>
+    <label for="profession">Profession:
+        <input [(ngModel)]="client.profession" name="profession">
+    </label>
+
+    <input class="add-client-btn" type="submit" value="submit">
+</form>

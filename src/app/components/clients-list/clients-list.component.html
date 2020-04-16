@@ -1,10 +1,23 @@
-<div>
+<div *ngIf="!showSpinner">
     <h2>Clients:</h2>
+    
+    <a class="add-client-link" routerLink="/dashboard/clients/add-client">
+        <p>Registrate new client</p>
+    </a>
+
+    <router-outlet></router-outlet>
+
     <ul class="clients">
-        <li *ngFor="let client of clients" title="{{client.name}} detail">
-            <a routerLink='/detail/{{client.id}}'>
-                <span>{{ client.id }}</span> {{ client.name }}
+        <li *ngFor="let client of clients" title="{{ client.firstName }} {{ client.lastName }} detail">
+            <a routerLink="/dashboard/clients/{{client.id}}">
+                <span>{{ client.firstName }} {{ client.lastName }}</span>
+                <p>{{ client.profession }}</p>
             </a>
+            <button (click)="deleteClient(client)" class="delete" title="Delete client?">
+                &times;
+            </button>
         </li>
     </ul>
 </div>
+
+<app-loading-spinner *ngIf="showSpinner" class="loading"></app-loading-spinner>

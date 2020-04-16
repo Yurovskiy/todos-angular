@@ -1,9 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
-import { TodoService } from './../../services/todo.service';
-import { IClient } from '../../interfaces/client';
-import { ITodo } from './../../interfaces/todo';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,25 +11,29 @@ import { ITodo } from './../../interfaces/todo';
 })
 export class DashboardComponent implements OnInit {
 
-  public clients: IClient[];
-  public todos: ITodo[];
+  public condition = false;
+
+  public showSnippet = true;
 
   constructor(
-    public todoService: TodoService,
-    private route: ActivatedRoute
-  ) { }
+    public afAuth: AngularFireAuth,
+    public auth: AuthService,
+    private router: Router
+  ) {
+    this.afAuth.authState.pipe(delay(500))
+      .subscribe(() => this.showSnippet = false);
 
-  ngOnInit(): void {
-    this.clients = this.route.snapshot.data.clientList;
-
-    this.todoService.getTodos().subscribe(todos => {
-      this.todos = todos;
+    this.afAuth.authState.subscribe(authentication => {
+      if (authentication) {
+        this.router.navigateByUrl('/dashboard/clients');
+      }
     });
   }
 
-  // private getClients(): void {
-  //   this.clientService.getClients()
-  //     .subscribe(clients => this.clients = clients.slice(1, 5));
-  // }
+  ngOnInit(): void { }
+
+  public onToggle() {
+    this.condition = !this.condition;
+  }
 
 }

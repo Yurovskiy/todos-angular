@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   constructor(
     private auth: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
       map(user => !!user),
       tap(loggedIn => {
         if (!loggedIn) {
-          alert('Access denied! Loggin please.');
+          // alert('Access denied! Loggin please.');
           this.router.navigate(['/login']);
         }
       })

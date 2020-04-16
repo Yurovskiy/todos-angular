@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from './../../services/client.service';
 
 import { IClient } from '../../interfaces/client';
-import { ActivatedRoute } from '@angular/router';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-clients',
@@ -12,12 +13,24 @@ export class ClientsComponent implements OnInit {
 
   public clients: IClient[];
 
+  public showSpinner = true;
+
   constructor(
-    private route: ActivatedRoute
+    private clientService: ClientService,
   ) { }
 
   ngOnInit(): void {
-    this.clients = this.route.snapshot.data.clientList;
+    this.clientService.getClients()
+      .pipe(delay(500))
+      .subscribe(() => this.showSpinner = false);
+
+    this.clientService.getClients().subscribe(clients => {
+      this.clients = clients;
+    });
+  }
+
+  public deleteClient(client: IClient): void {
+    this.clientService.deleteClient(client);
   }
 
 }

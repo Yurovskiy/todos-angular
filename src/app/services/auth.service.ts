@@ -41,10 +41,10 @@ export class AuthService {
 
   async signOut() {
     await this.afAuth.signOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
-  private updateUserData(user: any) {
+  private updateUserData(user: IUser) {
 
     const userRef: AngularFirestoreDocument<IUser> = this.afs.doc(`users/${user.uid}`);
 

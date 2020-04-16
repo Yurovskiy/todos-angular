@@ -1,29 +1,79 @@
-<div *ngIf='client'>
+<div *ngIf="!showSpinner">
+
     <div class="client-title">
-        <h2>{{ client.name }}</h2>
-        <button class="go-back" (click)='goBack()'>go back</button>
+        <h2>{{ client.firstName }} {{ client.lastName }}</h2>
+        <div class="btns-arr">
+            <input *ngIf="editState" (click)="updateClient()" class="update-btn" type="submit" value="Save">
+            <a (click)="editItem()" class="edit" >Edit</a>
+            <button (click)="goBack()" class="go-back">go back</button>
+        </div>
     </div>
-    <ul class="client-info">
-        <li><span>id:</span> {{ client.id }}</li>
-        <li><span>name:</span> {{ client.name }}</li>
-        <li><span>username:</span> {{ client.username }}</li>
-        <li><span>phone:</span> {{ client.phone }}</li>
-        <li><span>email:</span> {{ client.email }}</li>
-        <li><span>website:</span> {{ client.website }}</li>
-        <li class="client-address"><span>address:</span>    
-            <ul>
-                <li><span>city:</span> {{ client.address.city }}</li>
-                <li><span>street:</span> {{ client.address.street }}</li>
-                <li><span>suite:</span> {{ client.address.suite }}</li>
-                <li><span>zipcode:</span> {{ client.address.zipcode }}</li>
-            </ul>
-        </li>
-        <li class="client-company"><span>company:</span>    
-            <ul>
-                <li><span>name:</span> {{ client.company.name }}</li>
-                <li><span>catchPhrase:</span> {{ client.company.catchPhrase }}</li>
-                <li><span>bs:</span> {{ client.company.bs }}</li>
-            </ul>
-        </li>
-    </ul>
+
+    <div class="client-card">
+
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>First name:</span>
+                <p>{{ client.firstName }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.firstName" name="firstName">
+            </div>
+        </div>
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>Last name:</span>
+                <p>{{ client.lastName }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.lastName" name="lastName">
+            </div>
+        </div>
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>Nick name:</span>
+                <p>{{ client.nickName }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.nickName" name="nickName">
+            </div>
+        </div>
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>Email:</span>
+                <p>{{ client.email }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.email" name="email">
+            </div>
+        </div>
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>Phone:</span>
+                <p>{{ client.phone }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.phone" name="phone">
+            </div>
+        </div>
+        <div class="client-state-info">
+            <div class="client-label">
+                <span>Profession:</span>
+                <p>{{ client.profession }}</p>
+            </div>
+
+            <div *ngIf="editState" class="update-client">
+                <input [(ngModel)]="client.profession" name="profession">
+            </div>
+        </div>
+        
+    </div>
+
 </div>
+
+<app-loading-spinner *ngIf="showSpinner" class="loading"></app-loading-spinner>

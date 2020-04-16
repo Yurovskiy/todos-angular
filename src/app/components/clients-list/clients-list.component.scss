@@ -1,37 +1,92 @@
 h2 {
-    margin: 25px 0;
+    margin: 20px 0;
+}
+
+.add-client-link {
+    display: block;
+    width: max-content;
+
+    p {
+        width: max-content;
+        margin: 10px 0 30px;
+        padding: 10px;
+
+        color: #ffffff;
+        background: #607d8b;
+        box-shadow: 0 0 2px 0 #607d8b;
+        transition: all .2s ease-in-out;
+    }
+    p:hover {
+        background: #009688;
+        box-shadow: 0 0 2px 0 #009688;
+    }
 }
 
 .clients {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+
+    @media screen and (max-width: 1023px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 700px) {
+        grid-template-columns: 1fr;
+    }
+
     li {
-        display: flex;
+        position: relative;
+        display: grid;
         align-items: center;
 
-        margin: 10px 0;
-
         a {
-            flex: 1 1 auto;
-            padding: 10px 0;
+            padding: 15px;
 
             background-color: #606369;
             box-shadow: 0 0 2px 0 #606369;
             color: inherit;
 
-            transition: all .2s ease-in-out;
+            transition: all 0.2s ease-in-out;
 
             span {
-                padding: 10px 15px;
-                margin: 0 10px 0 0;
-                background-color: #333333ce;
-                box-shadow: 0 0 2px 0 #333333ce;
-                color: #ffffff;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: lighter;
+            }
+            p {
             }
         }
         a:hover {
             color: #ffffff;
-            background: #7383ca;
-            box-shadow: 0 0 2px 0 #7383ca;
+            background: #009688;
+            box-shadow: 0 0 2px 0 #009688;
             cursor: pointer;
         }
+
+        .delete {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0px 6px;
+
+            background: none;
+            border: none;
+            outline: none;
+
+            font-size: 22px;
+            color: #adaaaa;
+        }
+        .delete:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            color: #c34a4a;
+        }
     }
+}
+
+.loading {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }

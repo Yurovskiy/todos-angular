@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.afAuth.authState.subscribe(authentication => {
       if (authentication) {
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/dashboard/clients');
       }
     });
   }

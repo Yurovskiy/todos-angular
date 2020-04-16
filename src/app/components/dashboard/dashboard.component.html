@@ -1,35 +1,32 @@
-<div class="dashboard">
+<div *ngIf="!showSnippet" [class.opened]="condition" class="dashboard">
 
-    <div class="left-side">
-        <h3>Top Clients</h3>
-        <div class="top-clients">
-            <a *ngFor="let client of clients"
-                routerLink='/detail/{{ client.id }}'>
-                <div>
-                    <h4>{{ client.name }}</h4>
-                </div>
-            </a>
-        </div>
-        <app-client-search></app-client-search>
-    </div>
-
-    <div class="right-side">
-        <h3>Active Todos</h3>
-        <div class="active-todos">
-            <ul *ngIf='todos?.length > 0; else noTodos'>
-                <li *ngFor='let todo of todos'
-                    [class.done]='todo.completed' >
-                    <strong>{{ todo.title }}</strong> {{ todo.description }}
-                </li>
-            </ul>
-        </div>
-
-        <ng-template #noTodos>
-            <div class="no-todos">
-                <p>No todos now</p>
-                <img src="../../../assets/images/clipart2560733.png"
-                     title='Do you want add new todo?' />
+    <header>
+        <div class="header">
+            <div (click)="onToggle()" class="burger">
+                |||
             </div>
-        </ng-template> 
-    </div>
+            <div class="auth-user">
+                <div class="logined" *ngIf="auth.user$ | async as user">
+                    <div class="user-bar">
+                        <h4> {{ user.displayName | uppercase }} </h4>
+                        <div class="logo">
+                            <img [src]="user.photoURL" />
+                        </div>
+                    </div>
+                    <button (click)="auth.signOut()">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <app-sidebar></app-sidebar>
+    </nav>
+
+    <main class="container">
+        <router-outlet></router-outlet>
+    </main>
+
 </div>
+
+<app-loading-spinner *ngIf="showSnippet" class="loading"></app-loading-spinner>
